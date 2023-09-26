@@ -22,7 +22,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
 class SpeechScreen extends StatefulWidget {
   const SpeechScreen({super.key});
 
@@ -79,17 +78,17 @@ class _SpeechScreenState extends State<SpeechScreen> {
       appBar: AppBar(
         title:
             Text('Confidences: ${(_confidence * 100.0).toStringAsFixed(1)}%'),
-        // actions: [
-        //   Builder(builder: (context) {
-        //     return IconButton(
-        //         onPressed: () async {
-        //           await FlutterClipboard.copy(_text);
-        //           ScaffoldMessenger.of(context).showSnackBar(
-        //               const SnackBar(content: Text(' Copied to Clipboard')));
-        //         },
-        //         icon: const Icon(Icons.content_copy));
-        //   }),
-        // ],
+        actions: [
+          Builder(builder: (context) {
+            return IconButton(
+                onPressed: () async {
+                  await FlutterClipboard.copy(_text);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                      const SnackBar(content: Text(' Copied to Clipboard')));
+                },
+                icon: const Icon(Icons.content_copy));
+          }),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton: AvatarGlow(
